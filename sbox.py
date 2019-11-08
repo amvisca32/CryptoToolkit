@@ -15,10 +15,12 @@ for i in range(1,17):
         rotate = 2
     one_bit = (one_bit - rotate) % 28
     subkey_bit = find_one_bit_location_after_PC1(one_bit + 1)
-    print "Round {}: 1-bit is occupying position {}\n" \
-        "\tAfter PC-2 this is subkey bit {}\n\twhich afects S-box {}\n".format(
+    print ("Round {}: 1-bit is occupying position {}\n" \
+            "\tAfter PC-2 this is subkey bit {}\n\twhich afects S-box {}\n".format(
             str(i).zfill(2),
             one_bit + 1,
             subkey_bit if subkey_bit else "N/A",
-            ((subkey_bit - 1) / 6) + 1 if subkey_bit else "N/A"
-        )
+            ((subkey_bit - 1) / 6) + 1 if subkey_bit else "N/A"))
+
+if __name__ == '__main__':
+    find_one_bit_location_after_PC1(one_bit)
